@@ -22,7 +22,8 @@ kbd:hover > button {
 }
 
 body {
-    background: red url(./wall.jpg) no-repeat center center;
+    background: grey url(./wall.jpg) no-repeat center center;
+    background-size: cover;
 }
 
 main {

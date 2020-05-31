@@ -43,12 +43,14 @@
         index = 0
         while(index < keys['length']){
             div1 = document.createElement('div')
+            div1.className = 'row'
             zhansan.appendChild(div1)
             row = keys[index]
             index1 = 0
             while(index1 < row['length']){
                 kbd = document.createElement('kbd')
                 kbd.textContent = row[index1]
+                kbd.className = 'key'
                 div1.appendChild(kbd)
                 button = document.createElement('button')
                 button.textContent = 'E'

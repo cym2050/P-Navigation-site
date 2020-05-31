@@ -51,7 +51,8 @@
                 kbd = document.createElement('kbd')
                 kbd.textContent = row[index1]
                 kbd.className = 'key'
-                div1.appendChild(kbd)
+                img = document.createElement('img')
+                img.src = 'http://' + hash[row[index1]] + '/favicon.ico'
                 button = document.createElement('button')
                 button.textContent = 'E'
                 button.id = row[index1]
@@ -61,7 +62,10 @@
                     hash[key] = x
                     localStorage.setItem('zzz', JSON.stringify(hash))
                 }
+                div1.appendChild(kbd)
+                kbd.append(img)
                 kbd.append(button)
+
                 index1++
             }
             index = index + 1

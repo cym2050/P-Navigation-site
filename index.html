@@ -40,30 +40,40 @@
         if(hashInlocalStorage){
             hash = hashInlocalStorage
         }
-        index = 0
+        var index = 0
         while(index < keys['length']){
-            div1 = document.createElement('div')
-            div1.className = 'row'
+            var div1 = document.createElement('div')
+            var div1.className = 'row'
             zhansan.appendChild(div1)
-            row = keys[index]
-            index1 = 0
+            var row = keys[index]
+            var index1 = 0
             while(index1 < row['length']){
-                kbd = document.createElement('kbd')
-                kbd.textContent = row[index1]
+                var kbd = document.createElement('kbd')
                 kbd.className = 'key'
-                img = document.createElement('img')
+                var span = document.createElement('sapn')
+                span.className = 'text'
+                span.textContent = row[index1]
+                var img = document.createElement('img')
                 img.src = 'http://' + hash[row[index1]] + '/favicon.ico'
-                button = document.createElement('button')
+                img.onerror = function (xxx) {
+                }
+                var button = document.createElement('button')
                 button.textContent = 'E'
                 button.id = row[index1]
                 button.onclick = function(xzkjcnxlkcjlk){
+                    button2 = xzkjcnxlkcjlk.target
+                    img2 = button2.previousSibling
                     key = xzkjcnxlkcjlk.target.id
                     x = prompt('输入网址')
+                    img2.src = 'http://' + x + '/favicon.ico'
                     hash[key] = x
                     localStorage.setItem('zzz', JSON.stringify(hash))
                 }
                 div1.appendChild(kbd)
-                kbd.append(img)
+                kbd.append((span))
+                if(hash[row[index1]]){
+                    kbd.append(img)
+                }
                 kbd.append(button)
 
                 index1++
@@ -72,8 +82,8 @@
         }
 
         document.onkeypress = function (xzkjcnxlkcjlk) {
-            key = xzkjcnxlkcjlk['key']
-            website = hash[key]
+            var key = xzkjcnxlkcjlk['key']
+            var website = hash[key]
             console.log(website)
             //location.href = 'http://' + website //当前页面打开
             window.open('http://' + website, '_blank')  //新标签打开

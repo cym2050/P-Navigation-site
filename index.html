@@ -13,6 +13,7 @@
     <footer>
     </footer>
     <script>
+        //初始化数据
         var keys = {
             '0': {0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:10},
             '1': {0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l',length:9},
@@ -40,6 +41,7 @@
         if(hashInlocalStorage){
             hash = hashInlocalStorage
         }
+        //生成键盘
         var index = 0
         while(index < keys['length']){
             var div1 = document.createElement('div')
@@ -50,13 +52,16 @@
             while(index1 < row['length']){
                 var kbd = document.createElement('kbd')
                 kbd.className = 'key'
+               
                 var span = document.createElement('sapn')
                 span.className = 'text'
                 span.textContent = row[index1]
+                
                 var img = document.createElement('img')
                 img.src = 'http://' + hash[row[index1]] + '/favicon.ico'
                 img.onerror = function (xxx) {
                 }
+                
                 var button = document.createElement('button')
                 button.textContent = 'E'
                 button.id = row[index1]
@@ -69,6 +74,7 @@
                     hash[key] = x
                     localStorage.setItem('zzz', JSON.stringify(hash))
                 }
+               
                 div1.appendChild(kbd)
                 kbd.append((span))
                 if(hash[row[index1]]){
@@ -80,7 +86,7 @@
             }
             index = index + 1
         }
-
+        //事件监听
         document.onkeypress = function (xzkjcnxlkcjlk) {
             var key = xzkjcnxlkcjlk['key']
             var website = hash[key]
